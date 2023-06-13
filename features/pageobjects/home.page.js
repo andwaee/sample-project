@@ -9,9 +9,10 @@ class HomePage extends Page {
     /**
      * define selectors using getter methods
      */
-    homePageIcon () {
+    get homePageIcon () {
         return $(`//div[text()='Swag Labs']`);
     }
+
 
 
 }

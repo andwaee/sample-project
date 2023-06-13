@@ -21,7 +21,7 @@ When(/^I login with (\w+) and (.+)$/, async (username, password) => {
 });
 
 Then(/^I should see a icon$/, async () => {
-    await expect(await HomePage.homePageIcon()).toBeDisplayed();
+    await expect(await HomePage.homePageIcon).toBeDisplayed();
     await CommonUtility.takeScreenshot();
 });
 
