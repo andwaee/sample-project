@@ -136,7 +136,7 @@ export const config = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/steps.js'],
+        require: ['./features/step-definitions/login.steps.js'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -172,8 +172,9 @@ export const config = {
      * @param {object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    onPrepare:  function (config, capabilities) {
-        return fs.rm('./report/json', { recursive: true });
+    onPrepare:   function (config, capabilities) {
+         fs.rm('./report/json', { recursive: true });
+         fs.rm('./report/sample report', { recursive: true });
     },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
