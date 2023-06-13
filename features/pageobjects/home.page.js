@@ -5,15 +5,17 @@ import Page from './page.js';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class SecurePage extends Page {
+class HomePage extends Page {
     /**
      * define selectors using getter methods
      */
-    get flashAlert () {
-        return $(`//div/span[text()='Products']`);
+    homePageIcon () {
+        return $(`//div[text()='Swag Labs']`);
     }
+
+
 }
 
-export default new SecurePage();
+export default new HomePage();
 
 //ang panget ni andrei.js
