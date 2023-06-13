@@ -1,6 +1,7 @@
 
 
 import Page from './page.js';
+import CommonUtility from '../common-utility/common-util.js';
 
 /**
  * sub page containing specific selectors and methods for a specific page
@@ -29,6 +30,7 @@ class LoginPage extends Page {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
+        await CommonUtility.takeScreenshot();
     }
 
     /**
