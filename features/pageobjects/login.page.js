@@ -29,8 +29,8 @@ class LoginPage extends Page {
     async login (username, password) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
         await CommonUtility.takeScreenshot();
+        await this.btnSubmit.click();
     }
 
     /**
