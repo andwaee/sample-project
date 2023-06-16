@@ -1,14 +1,13 @@
-import cucumberJson from 'wdio-cucumberjs-json-reporter';
+import cucumberJson from "wdio-cucumberjs-json-reporter";
 
-class CommonUtility{
+class CommonUtility {
+  async takeScreenshot() {
+    cucumberJson.attach(await browser.takeScreenshot(), "image/png");
+  }
 
-     async takeScreenshot(){
-        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
-    }
-
-    async addInfoInReport(info){
-        cucumberJson.attach(info);
-    }
+  async addInfoInReport(info) {
+    cucumberJson.attach(info);
+  }
 }
 
 export default new CommonUtility();

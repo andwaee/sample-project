@@ -26,7 +26,8 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './features/**/*.feature'
+        './features/login.feature',
+        './features/homePage.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -48,7 +49,7 @@ export const config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -136,7 +137,10 @@ export const config = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/login.steps.js'],
+        require: [
+            './features/step-definitions/login.steps.js',
+            './features/step-definitions/homePage.steps.js'
+        ],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -323,10 +327,9 @@ export const config = {
             // default = '.tmp/json/'
             jsonDir: './report/json',
             reportPath: './report/sample report',
-            openReportInBrowser: true,
             displayDuration: true,
-            pageTitle: 'Generated Report',
-            reportName: 'Report Name'
+            openReportInBrowser: true,
+            pageTitle: 'Generated Report'
             // for more options see https://github.com/wswebcreation/multiple-cucumber-html-reporter#options
           });
     },

@@ -3,6 +3,8 @@
 import Page from './page.js';
 import CommonUtility from '../common-utility/common-util.js';
 
+const username = process.env.sampleUsername;
+const password = process.env.samplePassword;
 
 class LoginPage extends Page {
 
@@ -19,16 +21,28 @@ class LoginPage extends Page {
     }
 
 
-    async login (username, password) {
+    async login () {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
-        await CommonUtility.takeScreenshot();
+        await this.takeScreenshot();
         await this.btnSubmit.click();
     }
 
 
     open () {
         return super.open('https://www.saucedemo.com/');
+    }
+
+    takeScreenshot(){
+        return super.takeScreenshot();
+    }
+
+    async userIsLoggedIn(){
+        await this.open();
+        await this.inputUsername.setValue(username);
+        await this.inputPassword.setValue(password);
+        await this.btnSubmit.click();
+        await this.takeScreenshot();
     }
 }
 
