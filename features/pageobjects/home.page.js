@@ -16,12 +16,15 @@ class HomePage extends Page {
         return $(`//a/div[text()='${product}']//ancestor::div[@class='inventory_item_description']/div[@class='pricebar']/button`);
     }
 
-     /**
-    * This function will add an order to the cart
-    * @param product name of the product. Ex: Sauce Labs Backpack, Sauce Labs Bike Light or Sauce Labs Bolt T-Shirt etc.
-    */
+
     async addItemToCart(product){
         await this.addToCartButton(product).click();
+    }
+
+    async addItemsToCart(products = []){
+        for(let product of products){
+            await this.addItemToCart(product)
+        }
     }
 
     async clickCartIcon(){
