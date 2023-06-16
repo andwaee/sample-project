@@ -11,13 +11,14 @@ Given(/^I am on the login page$/, async () => {
 
 });
 
-When(/^I login with (\w+) and (.+)$/, async (username, password) => {
-    await LoginPage.login(username, password)
+When(/^I login with username and password$/, async () => {
+    await LoginPage.login()
 
 });
 
 Then(/^I should see a icon$/, async () => {
     await expect(await HomePage.homePageIcon).toBeDisplayed();
     await CommonUtility.takeScreenshot();
+    await CommonUtility.addInfoInReport(process.env.username);
 });
 
