@@ -10,7 +10,7 @@ import CheckOutCompletePage from '../pageobjects/checkOutComplete.page.js';
 
 
 //#region 
-Given(/^I am already logged in page$/, async () => {
+Given(/^I am already logged-in on Saucedemo site$/, async () => {
     await LoginPage.userIsLoggedIn();
 });
 
