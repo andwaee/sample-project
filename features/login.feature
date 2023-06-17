@@ -4,5 +4,5 @@ Feature: Login Functionality
 
     Given I am on the login page
     When I login with username and password
-    Then I should see a icon
+    Then I should see a Home page
 

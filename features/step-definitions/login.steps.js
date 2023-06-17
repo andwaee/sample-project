@@ -16,7 +16,7 @@ When(/^I login with username and password$/, async () => {
 
 });
 
-Then(/^I should see a icon$/, async () => {
+Then(/^I should see a Home page$/, async () => {
     await expect(await HomePage.homePageIcon).toBeDisplayed();
     await CommonUtility.takeScreenshot();
     await CommonUtility.addInfoInReport(process.env.username);
