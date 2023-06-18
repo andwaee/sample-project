@@ -27,7 +27,8 @@ export const config = {
     //
     specs: [
         './features/login.feature',
-        './features/homePage.feature'
+        './features/homePage.feature',
+        './features/scraper.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -49,7 +50,7 @@ export const config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 1,
+    maxInstances: 3,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -57,7 +58,10 @@ export const config = {
     //
     capabilities: [{
         // capabilities for local browser web tests
-        browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
+        browserName: 'chrome',
+        'goog:chromeOptions': {
+            args: ['headless', 'disable-gpu']
+        }
     }],
     //
     // ===================
@@ -139,7 +143,8 @@ export const config = {
         // <string[]> (file/dir) require files before executing features
         require: [
             './features/step-definitions/login.steps.js',
-            './features/step-definitions/homePage.steps.js'
+            './features/step-definitions/homePage.steps.js',
+            './features/step-definitions/scraper.steps.js'
         ],
         // <boolean> show full backtrace for errors
         backtrace: false,
@@ -156,7 +161,7 @@ export const config = {
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        tagExpression: '',
+        tagExpression: '@test',
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
