@@ -16,16 +16,16 @@ class LoginPage extends Page {
         return $('#password');
     }
 
-    get btnSubmit () {
+    get loginButton () {
         return $('#login-button');
     }
 
 
     async login () {
-        await this.inputUsername.setValue(username);
+        await this.inputUsername.setValue(username);  
         await this.inputPassword.setValue(password);
         await this.takeScreenshot();
-        await this.btnSubmit.click();
+        await this.loginButton.click();
     }
 
 
@@ -41,7 +41,7 @@ class LoginPage extends Page {
         await this.open();
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
+        await this.loginButton.click();
         await this.takeScreenshot();
     }
 }

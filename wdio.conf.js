@@ -8,7 +8,7 @@ export const config = {
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
-    
+
     //
     // ==================
     // Specify Test Files
@@ -107,7 +107,7 @@ export const config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['chromedriver'],
-    
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -128,10 +128,10 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [ ['cucumberjs-json', {
+    reporters: [['cucumberjs-json', {
         jsonFolder: './report/json',
         language: 'en'
-    }]], 
+    }]],
 
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
@@ -162,7 +162,7 @@ export const config = {
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: false
     },
-    
+
     //
     // =====
     // Hooks
@@ -176,9 +176,15 @@ export const config = {
      * @param {object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    onPrepare:   function (config, capabilities) {
-         fs.rm('./report/json', { recursive: true });
-         fs.rm('./report/sample report', { recursive: true });
+    onPrepare: async function (config, capabilities) {
+        const jsonPath = './report/json';
+        const sampleReportPath = './report/sample report';
+
+        const files = await fs.readdir(jsonPath);
+        if (files.length>0){
+            fs.rm(jsonPath, { recursive: true });
+            fs.rm(sampleReportPath, { recursive: true });
+        }
     },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
@@ -286,7 +292,7 @@ export const config = {
      */
     // afterFeature: function (uri, feature) {
     // },
-    
+
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {string} commandName hook command name
@@ -321,7 +327,7 @@ export const config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    onComplete: function(exitCode, config, capabilities, results) {
+    onComplete: function (exitCode, config, capabilities, results) {
         generate({
             // Required
             // This part needs to be the same path where you store the JSON files
@@ -332,7 +338,7 @@ export const config = {
             openReportInBrowser: true,
             pageTitle: 'Generated Report'
             // for more options see https://github.com/wswebcreation/multiple-cucumber-html-reporter#options
-          });
+        });
     },
     /**
     * Gets executed when a refresh happens.
