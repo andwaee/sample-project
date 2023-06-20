@@ -54,6 +54,21 @@ class CommonUtility {
       console.log("File created");
     }
   }
+
+  async writeExcelFile(userData = [], count) {
+    const filePath = "./testData.xlsx";
+    const workbook = new ExcelJS.Workbook();
+    await workbook.xlsx.readFile(filePath);
+    const worksheet = workbook.getWorksheet("Sheet2");
+
+    userData.forEach((product, index) => {
+      const row = worksheet.getRow(index + count + 2);
+      row.getCell(1).value = product.name;
+      row.getCell(2).value = product.price;
+    });
+
+    await workbook.xlsx.writeFile(filePath);
+  }
 }
 
 export default new CommonUtility();
