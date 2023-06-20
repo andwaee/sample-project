@@ -8,10 +8,10 @@ When(/^I scrape website$/, { timeout: 600000 }, async () => {
   let names = [];
   let data = [];
   let counter = 0;
-  let limit = 8;
+  let initialCounter = 0;
+  let limit = 10;
   await ScrapePage.open();
   for (let i = 1; i <= limit; i++) {
-    await ScrapePage.clickPageNumber(i);
     const pagesource = await browser.getPageSource();
     const dom = new JSDOM(pagesource);
     const document = await dom.window.document;
@@ -32,18 +32,19 @@ When(/^I scrape website$/, { timeout: 600000 }, async () => {
       await names.push(nameText);
     }
 
-    if (i == limit) {
-      for (let i = 0; i < counter; i++) {
-        await data.push(`Name: ${names[i]} @ Price: ${prices[i]}`);
-        const excelData = [{ name: names[i], price: prices[i] }];
-        await CommonUtility.writeExcelFile(excelData, i);
-      }
-      await CommonUtility.writeFile("furniture-page", data);
+    for (let i = initialCounter; i < counter; i++) {
+      await data.push(`Name: ${names[i]} @ Price: ${prices[i]}`);
+      const excelData = [{ name: names[i], price: prices[i] }];
+      await CommonUtility.writeExcelFile(excelData, i);
     }
 
-    if (i != limit) {
+    await CommonUtility.writeFile("furniture-page-"+i, data);
+    data = [];
+    initialCounter += ItemPrice.length;
+
+
       (await ScrapePage.pageNumber(i + 1)).waitForExist();
       await ScrapePage.clickPageNumber(i + 1);
-    }
+      await browser.pause(5000);
   }
 });
