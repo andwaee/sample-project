@@ -10,6 +10,19 @@ class ScapePage extends Page {
     pageNumber(page){
         return $(`//li[@title='${page}']`)
     }
+
+    ellipsis(){
+        return $(`//span[@class='ant-pagination-item-ellipsis']`)
+    }
+
+    async clickPageNumber(page){
+        await this.pageNumber(page).click();
+    }
+
+    async clickEllipsis(){
+        await this.ellipsis().click();
+    }
+    
 }
 
 export default new ScapePage();
