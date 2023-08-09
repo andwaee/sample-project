@@ -2,6 +2,7 @@
   "name": "my-new-project",
   "type": "module",
   "devDependencies": {
+    "@wdio/appium-service": "^8.14.3",
     "@wdio/cli": "^8.10.0",
     "@wdio/cucumber-framework": "^8.10.0",
     "@wdio/local-runner": "^8.10.0",
@@ -15,6 +16,7 @@
     "wdio-cucumberjs-json-reporter": "^5.1.5"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.js"
+    "mobile": "wdio run ./wdioMobile.conf.js",
+    "web": "wdio run ./wdioWeb.conf.js"
   }
 }

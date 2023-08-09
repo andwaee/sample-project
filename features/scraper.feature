@@ -1,6 +1,6 @@
 Feature: Scraper Functionality
 
-  @test
+  @Scraper
   Scenario Outline: Scrape Website
 
     When I scrape website
