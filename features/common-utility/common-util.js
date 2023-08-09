@@ -69,6 +69,10 @@ class CommonUtility {
 
     await workbook.xlsx.writeFile(filePath);
   }
+
+  async scrollToText(text){
+    await $(`android=new UiScrollable(new UiSelector().scrollable(true)).scrollTextIntoView("${text}")`)
+  }
 }
 
 export default new CommonUtility();
