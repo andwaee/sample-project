@@ -130,7 +130,8 @@ export const config = {
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: [['cucumberjs-json', {
         jsonFolder: './report/json',
-        language: 'en'
+        language: 'en',
+        disableHooks:true
     }]],
 
     //

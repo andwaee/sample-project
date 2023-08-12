@@ -33,7 +33,8 @@ When(/^I changed title fields$/, async () => {
 });
 
 Then(/^I should see the Custom Title is changed$/, async () => {
-  await MobileScreen.validateFieldifChanged(fieldValues.leftFieldValue, fieldValues.rightFieldValue)
+  await MobileScreen.validateFieldifChanged(fieldValues.leftFieldValue, fieldValues.rightFieldValue);
+  await MobileCommonUtility.takeScreenshot();
 });
 //#endregion
 
