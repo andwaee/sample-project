@@ -25,6 +25,13 @@ Before getting started, ensure you have the following prerequisites:
 
 1. Clone this repository:
 
-   ```bash
+   ```sh
    git clone https://github.com/yourusername/mobile-app-website-testing.git
    cd mobile-app-website-testing
+   ```
+
+
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
