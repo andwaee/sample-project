@@ -26,8 +26,7 @@ Before getting started, ensure you have the following prerequisites:
 1. Clone this repository:
 
    ```sh
-   git clone https://github.com/yourusername/mobile-app-website-testing.git
-   cd mobile-app-website-testing
+   git clone https://github.com/andwaee/sample-project.git
    ```
 
 
