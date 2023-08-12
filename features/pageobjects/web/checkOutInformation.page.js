@@ -1,6 +1,6 @@
 import Page from './page.js';
-import CommonUtility from '../common-utility/common-util.js';
-let testData = await CommonUtility.readExcelFile();
+import WebCommonUtility from '../../common-utility/web-common-util.js';
+let testData = await WebCommonUtility.readExcelFile();
 
 class CheckOutInformationPage extends Page {
     

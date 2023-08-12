@@ -26,9 +26,9 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './features/login.feature',
-        './features/homePage.feature',
-        './features/scraper.feature'
+        './features/feature-files/web/login.feature',
+        './features/feature-files/web/homePage.feature',
+        './features/feature-files/web/scraper.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -142,9 +142,7 @@ export const config = {
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
         require: [
-            './features/step-definitions/login.steps.js',
-            './features/step-definitions/homePage.steps.js',
-            './features/step-definitions/scraper.steps.js'
+            './features/step-definitions/web/*.steps.js',
         ],
         // <boolean> show full backtrace for errors
         backtrace: false,
