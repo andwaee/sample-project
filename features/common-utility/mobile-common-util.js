@@ -23,10 +23,6 @@ class MobileCommonUtility {
     const startPoint = (height * startPercentage) / 100;
     const endPoint = (height * endPercentage) / 100;
 
-    console.log('validate here:' + await JSON.stringify(await driver.getWindowSize()));
-    console.log('validate here:' + await JSON.stringify(anchor));
-    console.log('validate here:' + await JSON.stringify(startPoint));
-    console.log('validate here:' + await JSON.stringify(endPoint));
     await driver.touchPerform([
       {
         action: "press",
