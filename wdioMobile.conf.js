@@ -26,7 +26,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './features/mobile.feature'
+        './features/feature-files/mobile/mobile.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -138,7 +138,7 @@ export const config = {
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
         require: [
-            './features/step-definitions/mobile.steps.js'
+            './features/step-definitions/mobile/*.steps.js'
         ],
         // <boolean> show full backtrace for errors
         backtrace: false,

@@ -1,4 +1,4 @@
-import CommonUtility from '../common-utility/common-util.js';
+// import MobileCommonUtility from '../../common-utility/mobile-common-util';
 
 class MobileScreen {
     

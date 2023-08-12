@@ -2,7 +2,7 @@ import cucumberJson from "wdio-cucumberjs-json-reporter";
 import ExcelJS from "exceljs";
 import fs from "fs";
 
-class CommonUtility {
+class WebCommonUtility {
   async takeScreenshot() {
     cucumberJson.attach(await browser.takeScreenshot(), "image/png");
   }
@@ -75,4 +75,4 @@ class CommonUtility {
   }
 }
 
-export default new CommonUtility();
+export default new WebCommonUtility();
