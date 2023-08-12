@@ -30,8 +30,12 @@ class MobileScreen {
         return $('~Activity');
     }
 
-    get fields(){
-        return $$('android.widget.EditText');
+    get leftField(){
+        return $$('android.widget.EditText')[0];
+    }
+
+    get rightField(){
+        return $$('android.widget.EditText')[1];
     }
 
     get changeLeftButton(){
@@ -66,13 +70,13 @@ class MobileScreen {
     async changeTitles(){
         const leftFieldValue = 'Left Value is Changed';
         const rightFieldValue = 'Right Value is Changed';
-        await this.fields[0].click();
-        await this.fields[0].clearValue();
-        await this.fields[0].addValue(leftFieldValue);
+        await this.leftField.click();
+        await this.leftField.clearValue();
+        await this.leftField.addValue(leftFieldValue);
         await this.changeLeftButton.click();
-        await this.fields[1].click();
-        await this.fields[1].clearValue();
-        await this.fields[1].addValue(rightFieldValue);
+        await this.rightField.click();
+        await this.rightField.clearValue();
+        await this.rightField.addValue(rightFieldValue);
         await this.changeRightButton.click();
 
         return {leftFieldValue, rightFieldValue}
