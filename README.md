@@ -4,7 +4,7 @@ This repository contains a sample project for automated testing of mobile applic
 
 ## Introduction
 
-This project demonstrates how to set up and use WebdriverIO along with Appium to automate the testing of mobile applications and websites on real devices or simulators/emulators.
+This project demonstrates how to set up and use WebdriverIO along with Appium to automate the testing of mobile applications on real devices or simulators/emulators and websites.
 
 ## Features
 
