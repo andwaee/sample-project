@@ -10,11 +10,11 @@ import CheckOutCompletePage from '../../pageobjects/web/checkOutComplete.page.js
 
 
 //#region 
-Given(/^I am already logged-in on Saucedemo site$/, async () => {
+Given(/^user is in the product Home Page$/, async () => {
     await LoginPage.userIsLoggedIn();
 });
 
-When(/^I checkout (.*) product$/, async (productName) => {
+When(/^user checkouts (.*) product$/, async (productName) => {
     await HomePage.addItemToCart(productName);
     await HomePage.clickCartIcon();
     await CartPage.clickCheckoutButton();
@@ -26,7 +26,7 @@ When(/^I checkout (.*) product$/, async (productName) => {
     await CheckOutOverviewPage.clickFinishButton();
 });
 
-Then(/^I should successfully checkout the product$/, async () => {
+Then(/^user should successfully checkout the products$/, async () => {
     await CheckOutCompletePage.validateCompleteIcon();
     await WebCommonUtility.takeScreenshot();
 });
@@ -34,7 +34,7 @@ Then(/^I should successfully checkout the product$/, async () => {
 //#endregion
 
 //#region 
-When(/^I checkout$/, async (productNames) => {
+When(/^user checkout products$/, async (productNames) => {
     const products = await productNames.raw();
     await HomePage.addItemsToCart(products);
     await HomePage.clickCartIcon();

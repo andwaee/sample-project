@@ -1,19 +1,19 @@
 Feature: Checkout Functionality
 
     @Web
-    Scenario: As a user, I can checkout product/s
+    Scenario: Successfully checkout one product
 
-        Given I am already logged-in on Saucedemo site
-        When I checkout Sauce Labs Bolt T-Shirt product
-        Then I should successfully checkout the product
+        Given user is in the product Home Page
+        When user checkouts Sauce Labs Bolt T-Shirt product
+        Then user should successfully checkout the products
 
     @Web
-    Scenario Outline: As a user, I can checkout multiple products
+    Scenario Outline: Successfully checkout multiple products
 
-        Given I am already logged-in on Saucedemo site
-        When I checkout 
+        Given user is in the product Home Page
+        When user checkout products 
         |Sauce Labs Bolt T-Shirt|
         |Sauce Labs Bike Light|
         |Sauce Labs Fleece Jacket|
-        Then I should successfully checkout the products
+        Then user should successfully checkout the products
 

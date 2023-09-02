@@ -5,18 +5,18 @@ import HomePage from '../..//pageobjects/web/home.page.js';
 import WebCommonUtility from '../../common-utility/web-common-util.js';
 
 
-Given(/^I am on the login page$/, async () => {
+Given(/^user is on login Page$/, async () => {
   await LoginPage.open();
   await WebCommonUtility.takeScreenshot();
 
 });
 
-When(/^I login with username and password$/, async () => {
+When(/^user enters username and password$/, async () => {
     await LoginPage.login()
 
 });
 
-Then(/^I should see a Home page$/, async () => {
+Then(/^user should see Home page$/, async () => {
     await expect(await HomePage.homePageIcon).toBeDisplayed();
     await WebCommonUtility.takeScreenshot();
     await WebCommonUtility.addInfoInReport(process.env.username);
