@@ -1,9 +1,9 @@
 Feature: Login Functionality
 
   @Web
-  Scenario Outline: As a user, I can log into the Saucedemo site
+  Scenario Outline: Successful Login with Valid Credentials
 
-    Given I am on the login page
-    When I login with username and password
-    Then I should see a Home page
+    Given user is on login Page
+    When user enters username and password
+    Then user should see Home page
 
